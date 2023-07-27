@@ -1,0 +1,90 @@
+.hero-container {
+  background: url("https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding-top: 5px;
+}
+
+.header {
+  margin-left: 20px;
+}
+
+.logo-container {
+  object-fit: contain;
+}
+
+.hero-content .container {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.container h2 {
+  text-shadow: 1px 2px 3px #333;
+}
+
+.container > button {
+  border-radius: 30px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-row-start: auto;
+  grid-auto-flow: dense;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.grid-container img {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.img-container {
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.like-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 5px;
+  margin-top: 5px;
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .hero-content .container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 576px) {
+  .hero-content .container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 460px){
+    .hero-content .container{
+        width:100%;
+        margin:0 auto;
+    }
+}

@@ -1,0 +1,78 @@
+<div class="hero-container">
+  <div class="container-fluid">
+    <header class="container">
+      <div class="logo-container">
+        <img
+          src="../../../assets/pexels-logo.png"
+          alt="Pexels Logo"
+          height="80"
+        />
+      </div>
+    </header>
+  </div>
+  <div class="hero-content">
+    <div class="container d-flex flex-column align-items-center">
+      <div class="col-lg-12">
+        <h2 class="mt-5">
+          The best free stock photos, royalty free images & videos shared by
+          creators.
+        </h2>
+        <form
+          (submit)="handleInputSearch($event)"
+          class="form-control d-flex align-items-center mt-4"
+        >
+          <input
+            type="search"
+            placeholder="Search here for free photos"
+            class="form-control border-0 outline-0 fs-5"
+            [value]="inputSearch"
+            (input)="handleInput($event)"
+          />
+          <button
+            type="submit"
+            class="btn border-0 ml-2 d-flex justify-content-center align-items-center"
+          >
+            <i class="fa fa-search fs-4"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center my-4">
+  <button class="btn btn-lg btn-dark btn-rounded px-5">Home</button>
+  <button class="btn btn-lg btn-light border btn-rounded px-5">Videos</button>
+</div>
+<div class="container">
+  <h3 class="fs-2 fw-md text-secondary" style="margin-left: 20px">
+    Search result for
+    <span class="text-success fw-bold">{{ inputSearch }}</span>
+  </h3>
+  <p class="text-secondary" style="margin-left: 20px">
+    Results: {{ response.total_results }}
+  </p>
+</div>
+<div class="container grid-container" id="gallery">
+  <div *ngFor="let photo of photos" class="img-container">
+    <img [src]="photo.src.original" alt="" />
+    <button class="btn btn-light rounded-md like-btn">
+      <i class="fa-regular fa-heart fa-lg"></i>
+    </button>
+  </div>
+</div>
+<div class="container d-flex justify-content-center align-items-center my-4">
+  <button
+    [ngClass]="page > 1 ? 'btn-dark' : 'btn-light'"
+    class="btn btn-lg btn-light btn-rounded px-5"
+    (click)="handlePrevButton()"
+  >
+    Prev
+  </button>
+  <button
+    (click)="handleNextButton()"
+    class="btn btn-lg btn-dark btn-rounded px-5"
+  >
+    Next
+  </button>
+</div>
