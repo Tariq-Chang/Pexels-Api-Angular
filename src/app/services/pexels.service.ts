@@ -4,7 +4,7 @@ import { Response } from '../interfaces/response.interface';
 import { Observable, map } from 'rxjs';
 import { Images } from '../interfaces/images.interface';
 import { ImageUrls } from '../interfaces/image-urls.interface';
-import { environment } from 'src/environment/environment';
+// import { environment } from 'src/environment/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -31,18 +31,18 @@ export class PexelsService {
       .pipe(map((data) => this.processData(data)));
   }
 
-  getVideos(searchValue: string, page: number = 1): Observable<Response> {
-    const options = {
-      headers: new HttpHeaders().set('Authorization', environment.apiKey),
-    };
+  // getVideos(searchValue: string, page: number = 1): Observable<Response> {
+  //   const options = {
+  //     headers: new HttpHeaders().set('Authorization', environment.apiKey),
+  //   };
 
-    return this.http
-      .get<Response>(
-        `${this.videoApiUrl}?query=${searchValue}&page=${page}`,
-        options
-      )
-      .pipe(map((data) => this.processData(data)));
-  }
+  //   return this.http
+  //     .get<Response>(
+  //       `${this.videoApiUrl}?query=${searchValue}&page=${page}`,
+  //       options
+  //     )
+  //     .pipe(map((data) => this.processData(data)));
+  // }
 
   processData(response: Response): Response {
     return {
