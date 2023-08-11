@@ -10,19 +10,35 @@ import { environment } from 'src/environment/environment';
 })
 export class PexelsService {
   private readonly imgApiUrl: string = 'https://api.pexels.com/v1/search';
-  private readonly videoApiUrl: string = 'https://api.pexels.com/videos';
+  private readonly videoApiUrl: string = 'https://api.pexels.com/videos/search';
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
 
   getImages(searchValue: string, page: number = 1): Observable<Response> {
     const options = {
-      headers: new HttpHeaders().set('Authorization', environment.apiKey),
+      headers: new HttpHeaders().set(
+        'Authorization',
+        'LBUMvBf57nrMOj5FWcVQtscEjaSNBYGCUewe4uFgS1UOehKnDbgA3gvC'
+      ),
     };
 
     return this.http
       .get<Response>(
         `${this.imgApiUrl}?query=${searchValue}&page=${page}`,
+        options
+      )
+      .pipe(map((data) => this.processData(data)));
+  }
+
+  getVideos(searchValue: string, page: number = 1): Observable<Response> {
+    const options = {
+      headers: new HttpHeaders().set('Authorization', environment.apiKey),
+    };
+
+    return this.http
+      .get<Response>(
+        `${this.videoApiUrl}?query=${searchValue}&page=${page}`,
         options
       )
       .pipe(map((data) => this.processData(data)));
